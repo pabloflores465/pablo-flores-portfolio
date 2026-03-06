@@ -539,6 +539,9 @@ ul {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-soft);
+  transition:
+    color 180ms ease,
+    transform 260ms ease;
 }
 
 .entry-details summary::-webkit-details-marker {
@@ -550,14 +553,148 @@ ul {
   font-size: 0.95rem;
   line-height: 1;
   color: var(--accent);
+  transition:
+    transform 260ms ease,
+    opacity 180ms ease;
 }
 
 .entry-details[open] summary::after {
   content: "−";
 }
 
+.entry-details[open] summary,
+.entry-details.is-animating summary {
+  color: var(--heading);
+  transform: translateX(3px);
+}
+
+.entry-details[open] summary::after,
+.entry-details.is-animating summary::after {
+  transform: rotate(180deg) scale(1.08);
+}
+
 .entry-details > :not(summary) {
   margin: 0;
+  transform-origin: top;
+}
+
+.entry-details[data-animation-direction="opening"] > :not(summary) {
+  animation: details-reveal 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.entry-details[data-animation-direction="opening"] .chip-list li {
+  animation: details-chip-rise 300ms cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+
+.entry-details[data-animation-direction="opening"] .chip-list li:nth-child(1) {
+  animation-delay: 40ms;
+}
+
+.entry-details[data-animation-direction="opening"] .chip-list li:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.entry-details[data-animation-direction="opening"] .chip-list li:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.entry-details[data-animation-direction="opening"] .chip-list li:nth-child(4) {
+  animation-delay: 160ms;
+}
+
+.entry-details[data-animation-direction="opening"] .chip-list li:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+.entry-details[data-animation-direction="opening"] .chip-list li:nth-child(6) {
+  animation-delay: 240ms;
+}
+
+.entry-details[data-animation-direction="opening"] .project-shot,
+.entry-details[data-animation-direction="opening"] .preview-window,
+.entry-details[data-animation-direction="opening"] .repo-line {
+  animation: details-panel-rise 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.entry-details[data-animation-direction="opening"] .project-shot:nth-child(1),
+.entry-details[data-animation-direction="opening"] .preview-window:nth-child(1) {
+  animation-delay: 90ms;
+}
+
+.entry-details[data-animation-direction="opening"] .project-shot:nth-child(2),
+.entry-details[data-animation-direction="opening"] .preview-window:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.entry-details[data-animation-direction="opening"] .project-shot:nth-child(3),
+.entry-details[data-animation-direction="opening"] .repo-line {
+  animation-delay: 210ms;
+}
+
+.entry-details[data-animation-direction="closing"] > :not(summary) {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.985);
+}
+
+.timeline-card.details-open,
+.education-card.details-open,
+.project-card.details-open,
+.certification-card.details-open {
+  transform: translateY(-3px);
+  border-color: rgba(100, 255, 218, 0.12);
+  background: rgba(17, 34, 64, 0.22);
+  box-shadow: 0 16px 36px rgba(2, 12, 27, 0.16);
+}
+
+@keyframes details-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes details-chip-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes details-panel-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-details summary,
+  .entry-details summary::after {
+    transition: none;
+  }
+
+  .entry-details[data-animation-direction="opening"] > :not(summary),
+  .entry-details[data-animation-direction="opening"] .chip-list li,
+  .entry-details[data-animation-direction="opening"] .project-shot,
+  .entry-details[data-animation-direction="opening"] .preview-window,
+  .entry-details[data-animation-direction="opening"] .repo-line {
+    animation: none;
+  }
 }
 
 .education-grid {

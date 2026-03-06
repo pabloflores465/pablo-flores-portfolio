@@ -92,3 +92,109 @@ if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
 
   renderCursor();
 }
+
+const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const animatedDetails = Array.from(document.querySelectorAll(".entry-details"));
+const detailsEasing = "cubic-bezier(0.22, 1, 0.36, 1)";
+
+const updateDetailCardState = (details) => {
+  const card = details.closest(".timeline-card, .education-card, .project-card, .certification-card");
+
+  if (card) {
+    card.classList.toggle("details-open", details.open);
+  }
+};
+
+const finishDetailsAnimation = (details) => {
+  details.dataset.animating = "false";
+  details.classList.remove("is-animating");
+  details.style.height = "";
+  details.style.overflow = "";
+  details.style.transition = "";
+  delete details.dataset.animationDirection;
+};
+
+const animateDetailsHeight = (details, startHeight, endHeight, duration, onFinish) => {
+  details.style.height = startHeight;
+  details.style.transition = `height ${duration}ms ${detailsEasing}`;
+  details.getBoundingClientRect();
+
+  window.requestAnimationFrame(() => {
+    details.style.height = endHeight;
+  });
+
+  const handleTransitionEnd = (event) => {
+    if (event.propertyName !== "height") {
+      return;
+    }
+
+    details.removeEventListener("transitionend", handleTransitionEnd);
+    onFinish();
+  };
+
+  details.addEventListener("transitionend", handleTransitionEnd);
+};
+
+const toggleDetails = (details) => {
+  const isReducedMotion = motionQuery.matches;
+
+  if (details.dataset.animating === "true") {
+    return;
+  }
+
+  if (isReducedMotion) {
+    details.open = !details.open;
+    updateDetailCardState(details);
+    return;
+  }
+
+  const summary = details.querySelector("summary");
+
+  if (!summary) {
+    details.open = !details.open;
+    updateDetailCardState(details);
+    return;
+  }
+
+  details.dataset.animating = "true";
+  details.classList.add("is-animating");
+  details.style.overflow = "hidden";
+
+  if (details.open) {
+    const startHeight = `${details.offsetHeight}px`;
+    const endHeight = `${summary.offsetHeight}px`;
+    details.dataset.animationDirection = "closing";
+
+    animateDetailsHeight(details, startHeight, endHeight, 320, () => {
+      details.open = false;
+      updateDetailCardState(details);
+      finishDetailsAnimation(details);
+    });
+    return;
+  }
+
+  const startHeight = `${details.offsetHeight}px`;
+  details.open = true;
+  updateDetailCardState(details);
+  const endHeight = `${details.offsetHeight}px`;
+  details.dataset.animationDirection = "opening";
+
+  animateDetailsHeight(details, startHeight, endHeight, 360, () => {
+    finishDetailsAnimation(details);
+  });
+};
+
+animatedDetails.forEach((details) => {
+  const summary = details.querySelector("summary");
+
+  if (!summary) {
+    return;
+  }
+
+  updateDetailCardState(details);
+
+  summary.addEventListener("click", (event) => {
+    event.preventDefault();
+    toggleDetails(details);
+  });
+});
