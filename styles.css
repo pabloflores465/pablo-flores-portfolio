@@ -294,24 +294,6 @@ ul {
   background: rgba(17, 34, 64, 0.26);
 }
 
-.contact-mail {
-  width: fit-content;
-  color: var(--text-soft);
-  font-size: 0.88rem;
-  border-bottom: 1px solid transparent;
-  transition:
-    transform 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease;
-}
-
-.contact-mail:hover,
-.contact-mail:focus-visible {
-  transform: translateY(-2px);
-  color: var(--heading);
-  border-bottom-color: rgba(100, 255, 218, 0.24);
-}
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -361,6 +343,10 @@ ul {
 
 .content-section > h3 {
   margin-bottom: 28px;
+}
+
+.content-section > h3 + .prose {
+  margin-top: 12px;
 }
 
 .section-heading {
@@ -523,22 +509,22 @@ ul {
 .entry-details {
   display: grid;
   gap: 12px;
-  padding-top: 10px;
+  padding-top: 12px;
   border-top: 1px solid rgba(136, 146, 176, 0.12);
 }
 
 .project-details {
-  gap: 16px;
+  gap: 18px;
 }
 
 .project-details .chip-list {
-  margin-top: 2px;
-  margin-bottom: 6px;
+  margin-top: 6px;
+  margin-bottom: 10px;
 }
 
 .project-details .project-preview-shell,
 .project-details .project-media-grid {
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .entry-details summary {
@@ -648,6 +634,12 @@ ul {
   background: rgba(255, 255, 255, 0.04);
 }
 
+.project-shot-surface img {
+  object-fit: contain;
+  object-position: center;
+  background: rgba(8, 17, 31, 0.52);
+}
+
 .project-shot figcaption,
 .preview-label,
 .cert-detail {
@@ -691,14 +683,17 @@ ul {
 }
 
 .repo-line {
-  display: inline-flex;
-  align-items: center;
-  min-height: 42px;
-  padding: 0 14px;
+  display: block;
+  width: 100%;
+  min-height: auto;
+  padding: 12px 14px;
   border-radius: 14px;
   border: 1px solid rgba(136, 146, 176, 0.1);
   background: rgba(255, 255, 255, 0.03);
   color: var(--heading);
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
   transition:
     transform 180ms ease,
     border-color 180ms ease;
@@ -793,6 +788,26 @@ ul {
     padding-top: 0;
   }
 
+  .content-section {
+    padding-top: 52px;
+  }
+
+  .content-section:not(:first-child) {
+    border-top: 1px solid rgba(136, 146, 176, 0.08);
+  }
+
+  .section-kicker {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    color: var(--heading);
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
   .timeline-card,
   .project-card,
   .education-card,
@@ -817,7 +832,7 @@ ul {
   }
 
   .content-section {
-    padding-top: 64px;
+    padding-top: 46px;
   }
 
   .intro-block h1 {
@@ -857,7 +872,7 @@ ul {
   }
 
   .chip-list {
-    gap: 8px;
+    gap: 10px;
   }
 
   .site-footer {
@@ -867,6 +882,11 @@ ul {
 
   .site-footer p:last-child {
     flex-wrap: wrap;
+  }
+
+  .social-link {
+    min-height: 38px;
+    padding: 0 12px;
   }
 }
 

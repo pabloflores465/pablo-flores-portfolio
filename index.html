@@ -31,11 +31,22 @@
     <link
       rel="icon"
       type="image/svg+xml"
-      href="/favicon.svg"
+      sizes="any"
+      href="/favicon-p.svg?v=3"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-p-32.png?v=3"
     />
     <link
       rel="shortcut icon"
-      href="/favicon.ico"
+      href="/favicon-p.ico?v=3"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/apple-touch-icon.png?v=3"
     />
     <link
       rel="stylesheet"
@@ -155,13 +166,6 @@
                 <span>Email</span>
               </a>
             </div>
-
-            <a
-              class="contact-mail"
-              href="mailto:pablopolis2016@gmail.com"
-            >
-              pablopolis2016@gmail.com
-            </a>
           </div>
         </div>
       </aside>
@@ -413,10 +417,72 @@
         >
           <div class="section-heading reveal">
             <p class="section-kicker">Projects</p>
-            <h3 id="projects-title">Apps, local AI, and model tuning experiments.</h3>
+            <h3 id="projects-title">Apps, robotics tools, local AI, and model tuning experiments.</h3>
           </div>
 
           <div class="project-grid">
+            <article class="project-card reveal">
+              <div class="project-copy">
+                <p class="period">Mar 2026</p>
+                <h4>Robotica</h4>
+                <p class="entry-meta">TypeScript · React · React Three Fiber · Three.js</p>
+                <p>
+                  An interactive DH kinematics visualizer for building robot arms
+                  with revolute and prismatic joints, inspecting the 3D model in
+                  real time, and exporting or importing the resulting setup.
+                </p>
+
+                <div class="project-links">
+                  <a
+                    class="button button-secondary"
+                    href="https://github.com/pabloflores465/robotica"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View repo
+                  </a>
+                </div>
+
+                <details class="entry-details project-details">
+                  <summary>Preview & stack</summary>
+                  <ul class="chip-list">
+                    <li>TypeScript</li>
+                    <li>React</li>
+                    <li>React Three Fiber</li>
+                    <li>Three.js</li>
+                    <li>Zustand</li>
+                    <li>jsPDF</li>
+                  </ul>
+
+                  <div class="project-media-grid">
+                    <figure class="project-shot project-shot-surface">
+                      <img
+                        src="/images/projects/robotica-axes.png"
+                        alt="3D robot arm view with axes and DH labels"
+                      />
+                      <figcaption>3D Axes</figcaption>
+                    </figure>
+
+                    <figure class="project-shot project-shot-surface">
+                      <img
+                        src="/images/projects/robotica-builder.png"
+                        alt="Robotica builder panel with DH parameters and 3D scene"
+                      />
+                      <figcaption>Builder</figcaption>
+                    </figure>
+
+                    <figure class="project-shot project-shot-surface">
+                      <img
+                        src="/images/projects/robotica-controls.png"
+                        alt="Joint controls with live robot arm updates"
+                      />
+                      <figcaption>Joint Controls</figcaption>
+                    </figure>
+                  </div>
+                </details>
+              </div>
+            </article>
+
             <article class="project-card reveal">
               <div class="project-copy">
                 <p class="period">Dec 2025 — Present</p>
@@ -786,7 +852,7 @@
         </section>
 
         <footer class="site-footer reveal">
-          <p>Built around the work, projects, and certifications that reflect where I am right now.</p>
+          <p>Portfolio stack: Vite, HTML, CSS, and vanilla JavaScript.</p>
           <p>
             <span id="year"></span>
             <span>Pablo Rodolfo Flores Mollinedo</span>
