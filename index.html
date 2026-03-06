@@ -25,7 +25,7 @@
       crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -98,82 +98,102 @@
 
     <main id="inicio">
       <section class="hero section">
-        <div class="container hero-layout">
-          <div class="hero-copy reveal">
-            <div class="hero-meta">
-              <span class="tag">Portafolio personal</span>
-              <span class="tag subtle">San José Pinula</span>
+        <div class="container hero-stage">
+          <div class="hero-stamp">GT / PERFIL</div>
+
+          <div class="hero-layout">
+            <div class="hero-copy reveal">
+              <div class="hero-meta">
+                <span class="tag">Portafolio personal</span>
+                <span class="tag subtle">San José Pinula</span>
+              </div>
+
+              <p class="serial">Archivo 01</p>
+              <h1>
+                Pablo Rodolfo
+                <span>Flores Mollinedo</span>
+              </h1>
+
+              <p class="hero-text">
+                La información pública indexada del perfil lo vincula con
+                <strong>Universidad del Istmo</strong>, con
+                <strong>San José Pinula</strong> y con experiencia para
+                <strong>cliente particular</strong>. Este sitio toma esa base y la
+                presenta de forma más clara, más seria y más útil.
+              </p>
+
+              <div class="hero-actions">
+                <a
+                  class="button button-primary"
+                  href="https://www.linkedin.com/in/pablo-rodolfo-flores-mollinedo-763713257/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Abrir perfil
+                </a>
+                <a
+                  class="button button-ghost"
+                  href="#contacto"
+                >
+                  Contacto
+                </a>
+              </div>
+
+              <div class="hero-markers">
+                <span>UDI</span>
+                <span>GT-01</span>
+                <span>CP</span>
+              </div>
+
+              <p class="hero-footnote">
+                LinkedIn deja el perfil completo detrás de `authwall`. Por eso el
+                contenido aquí está redactado únicamente con lo que sí se pudo
+                verificar de forma pública.
+              </p>
             </div>
 
-            <p class="serial">Archivo 01</p>
-            <h1>
-              Pablo Rodolfo
-              <span>Flores Mollinedo</span>
-            </h1>
+            <aside class="hero-sheet reveal">
+              <div class="sheet-ribbon">Verificado</div>
+              <div class="sheet-accent"></div>
+              <div class="sheet-header">
+                <span class="sheet-label">Datos visibles</span>
+                <strong>Base pública verificada</strong>
+              </div>
 
-            <p class="hero-text">
-              La información pública indexada del perfil lo vincula con
-              <strong>Universidad del Istmo</strong>, con
-              <strong>San José Pinula</strong> y con experiencia para
-              <strong>cliente particular</strong>. Este sitio toma esa base y la
-              presenta de forma más clara, más seria y más útil.
-            </p>
+              <div class="fact-list">
+                <div class="fact-row">
+                  <small>Nombre</small>
+                  <strong>Pablo Rodolfo Flores Mollinedo</strong>
+                </div>
+                <div class="fact-row">
+                  <small>Formación</small>
+                  <strong>Universidad del Istmo</strong>
+                </div>
+                <div class="fact-row">
+                  <small>Ubicación asociada</small>
+                  <strong>San José Pinula</strong>
+                </div>
+                <div class="fact-row">
+                  <small>Experiencia visible</small>
+                  <strong>Cliente Particular</strong>
+                </div>
+              </div>
 
-            <div class="hero-actions">
-              <a
-                class="button button-primary"
-                href="https://www.linkedin.com/in/pablo-rodolfo-flores-mollinedo-763713257/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Abrir perfil
-              </a>
-              <a
-                class="button button-ghost"
-                href="#contacto"
-              >
-                Contacto
-              </a>
-            </div>
-
-            <p class="hero-footnote">
-              LinkedIn deja el perfil completo detrás de `authwall`. Por eso el
-              contenido aquí está redactado únicamente con lo que sí se pudo
-              verificar de forma pública.
-            </p>
+              <p class="sheet-note">
+                Esta primera versión evita inventar stack, habilidades o logros que
+                no aparezcan en la superficie pública del perfil.
+              </p>
+            </aside>
           </div>
+        </div>
+      </section>
 
-          <aside class="hero-sheet reveal">
-            <div class="sheet-accent"></div>
-            <div class="sheet-header">
-              <span class="sheet-label">Datos visibles</span>
-              <strong>Base pública verificada</strong>
-            </div>
-
-            <div class="fact-list">
-              <div class="fact-row">
-                <small>Nombre</small>
-                <strong>Pablo Rodolfo Flores Mollinedo</strong>
-              </div>
-              <div class="fact-row">
-                <small>Formación</small>
-                <strong>Universidad del Istmo</strong>
-              </div>
-              <div class="fact-row">
-                <small>Ubicación asociada</small>
-                <strong>San José Pinula</strong>
-              </div>
-              <div class="fact-row">
-                <small>Experiencia visible</small>
-                <strong>Cliente Particular</strong>
-              </div>
-            </div>
-
-            <p class="sheet-note">
-              Esta primera versión evita inventar stack, habilidades o logros que
-              no aparezcan en la superficie pública del perfil.
-            </p>
-          </aside>
+      <section class="section proof-strip">
+        <div class="container">
+          <div class="proof-band reveal">
+            <p>Universidad del Istmo / San José Pinula / Cliente Particular</p>
+            <small>3 señales visibles · 1 base pública clara</small>
+          </div>
         </div>
       </section>
 
@@ -294,6 +314,7 @@
 
           <div class="future-grid">
             <article class="future-card reveal">
+              <span class="future-index">01</span>
               <h3>Proyectos</h3>
               <p>
                 Casos de trabajo, entregables, capturas, objetivos y resultado de
@@ -302,6 +323,7 @@
             </article>
 
             <article class="future-card reveal">
+              <span class="future-index">02</span>
               <h3>Herramientas</h3>
               <p>
                 Tecnologías, software o áreas de trabajo, pero solo cuando se
@@ -310,6 +332,7 @@
             </article>
 
             <article class="future-card reveal">
+              <span class="future-index">03</span>
               <h3>Resultados</h3>
               <p>
                 Métricas, logros académicos o referencias que conviertan el perfil
